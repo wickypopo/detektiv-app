@@ -25,8 +25,8 @@ Beste Grüße
 Hannah`,
     read: false,
     attachments: [
-      { type: "img", src: "/attachments/pixel-art.png" },
-      { type: "audio", src: "/attachments/song.mp3" },
+      { label: "view Image", type: "img", src: "/attachments/pixel-art.png" },
+      { label: "view Audio", type: "audio", src: "/attachments/song.mp3" },
     ],
   },
   {
@@ -51,7 +51,7 @@ Hannah`,
 
 export default function EmailProgram() {
   const [email, setEmail] = useState(null);
-  console.log(email);
+  const [openAttachment, setOpenAttachment] = useState(false);
   return (
     <>
       <div className="flex flex-1 flex-col">
@@ -62,24 +62,43 @@ export default function EmailProgram() {
               className="size-5 absolute top-2 right-2"
               onClick={() => setEmail(null)}
             />
-            <span>{email.subject}</span>
+            <span className="text-3xl">{email.subject}</span>
             <span className="text-[18px] text-mid-dark">
               from: {email.sender}
             </span>
             <ReactMarkdown>{email.body}</ReactMarkdown>
-            {email.attachments.map((attachment) => {
-              if (attachment.type === "audio") {
-                return <Win95Audio key={attachment.src} src={attachment.src} />;
-              }
-              const Type = attachment.type;
-              return (
-                <Type
-                  className="win95-audio"
-                  controls={attachment.type === "audio"}
-                  src={attachment.src}
-                />
-              );
-            })}
+            <div className="flex flex-col w-full gap-2">
+              <div className="flex gap-2">
+                {email.attachments.map((attachment) => (
+                  <button
+                    key={attachment.src}
+                    onClick={() => setOpenAttachment(attachment)}
+                    className="material-out active:material-in gap-1 px-3 py-1 flex items-center"
+                  >
+                    {" "}
+                    {attachment.label}
+                    <img
+                      src="/icons/small/play.png"
+                      className="size-4 rotate-90"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <div className="w-full">
+                {openAttachment?.type === "img" && (
+                  <img src={openAttachment.src} className="w-full" />
+                )}
+
+                {openAttachment?.type === "audio" && (
+                  <Win95Audio
+                    src={openAttachment.src}
+                    controls
+                    className="w-full"
+                  />
+                )}
+              </div>
+            </div>
           </div>
         ) : (
           emails.map((mail) => (

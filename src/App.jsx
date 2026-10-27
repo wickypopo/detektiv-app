@@ -7,6 +7,7 @@ import EmailProgram from "./programs/EmailProgram";
 import InternetProgram from "./programs/InternetProgram";
 import FolderProgram from "./programs/FolderProgram";
 import ComputerProgram from "./programs/ComputerProgram";
+import DetectiveProgram from "./programs/DetectiveProgram";
 
 const apps = [
   { label: "Folder", icon: "/icons/Folder.png", program: FolderProgram },
@@ -19,6 +20,16 @@ const apps = [
   {
     label: "My Computer",
     icon: "/icons/My Computer.png",
+    program: ComputerProgram,
+  },
+  {
+    label: "Sherlock 95",
+    icon: "/icons/Agent.png",
+    program: DetectiveProgram,
+  },
+  {
+    label: "Shell",
+    icon: "/icons/Drive2.png",
     program: ComputerProgram,
   },
 ];

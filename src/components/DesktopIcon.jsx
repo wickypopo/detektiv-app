@@ -8,7 +8,7 @@ export default function DesktopIcon({
       onClick={onClick}
       className="flex flex-col justify-center items-center relative"
     >
-      <img src={icon} className="size-16 object-fill" />
+      <img src={icon} className="size-[64px] object-fill image-rendering" />
       <span className="text-white text-xl">{label}</span>
     </button>
   );
