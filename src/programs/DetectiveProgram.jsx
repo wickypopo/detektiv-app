@@ -28,10 +28,10 @@ export default function DetectiveProgram() {
 
   return (
     <>
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-1 flex-col p-8">
         {loginScreen ? (
           <div className="flex flex-1 flex-col gap-2 items-center justify-center">
-            <div className="material-out flex items-center justify-center py-4 w-80">
+            <div className="material-in flex items-center justify-center py-4 w-80">
               <span className="text-4xl leading-none -mb-6">{password}</span>
             </div>
             <div className="flex w-80 justify-between">
@@ -39,17 +39,10 @@ export default function DetectiveProgram() {
               <button
                 onClick={() => setLoginScreen(false)}
                 className="
-                bg-primary 
                 text-white 
-                border-3 px-4
-                border-t-[#757FF0] 
-                border-l-[#757FF0] 
-                border-b-[#03052E] 
-                border-r-[#03052E]
-                active:border-t-[#03052E] 
-                active:border-l-[#03052E] 
-                active:border-b-[#757FF0] 
-                active:border-r-[#757FF0]"
+                px-4
+                primary-out
+                active:primary-in"
               >
                 Login
               </button>
@@ -66,7 +59,7 @@ export default function DetectiveProgram() {
               <input
                 type="text"
                 placeholder="Placeholder"
-                className="flex-1 material-in pl-2 py-2"
+                className="flex-1 material-in pl-2 py-2 focus:outline-dashed focus:outline-2 focus:outline-dark focus:-outline-offset-6"
               />
             </label>
             <label className="flex flex-col gap-1">
@@ -74,24 +67,20 @@ export default function DetectiveProgram() {
               <input
                 type="text"
                 placeholder="Placeholder"
-                className="flex-1 material-in pl-2 py-2"
+                className="flex-1 material-in pl-2 py-2 focus:outline-dashed focus:outline-2 focus:outline-dark focus:-outline-offset-6"
               />
             </label>{" "}
             <button
               type="text"
               placeholder="Label here"
               className="
-                bg-primary 
                 text-white 
-                border-3 px-4
-                border-t-[#757FF0] 
-                border-l-[#757FF0] 
-                border-b-[#03052E] 
-                border-r-[#03052E]
-                active:border-t-[#03052E] 
-                active:border-l-[#03052E] 
-                active:border-b-[#757FF0] 
-                active:border-r-[#757FF0]"
+                border-3 
+                px-4
+                py-2
+                self-start
+                primary-out
+                active:primary-in"
             >
               Abschicken
             </button>

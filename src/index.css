@@ -39,6 +39,21 @@
     inset 4px 4px 0 0 var(--color-mid-dark);
 }
 
+@utility primary-out {
+  background-color: var(--color-primary);
+  box-shadow:
+    inset -2px -2px 0 0 #00021a,
+    inset 2px 2px 0 0 #757ff0,
+    inset -4px -4px 0 0 #000a75;
+}
+@utility primary-in {
+  background-color: var(--color-primary);
+  box-shadow:
+    inset 2px 2px 0 0 #00021a,
+    inset -2px -2px 0 0 #757ff0,
+    inset 4px 4px 0 0 #000a75;
+}
+
 @layer components {
   .bottom-bar {
     @apply border-[3px] border-l-light border-t-light border-r-0 border-b-0;
